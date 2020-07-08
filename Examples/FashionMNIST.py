@@ -65,8 +65,17 @@ model = keras.Sequential([
 ])
 
 
+# Before create the model i need to configure my module adding few settings.
+# There settings are added in the moddule during the compile step
+# The first setting added in the model is the optimizer method. For this example i'm using the algorithm Adam.
+# Adam is a optimizarion algorithm that implement a stochastic gradient descent method. This method will be used
+# to define how the model will be updated based on the data and loss function
 
-# Before to
+# The second setting is the loss function. This measures how accurate the model is during training. For this example
+# i'm using the SparseCategoricalCrossentropy that measures the performance of a classification model whose output is
+# a probability value between 0 and 1
+
+# The third setting is the metric used to monitor the training and testing steps.
 model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
